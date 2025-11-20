@@ -1,0 +1,93 @@
+/* ------ Style global ------ */
+
+body {
+    background-color: #faf8f8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Conteneur principal */
+.page-container {
+    padding-bottom: 40px;
+}
+
+/* Titre & sous-titre */
+.page-title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 3rem;
+}
+
+.page-subtitle {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* ------ KPI Cards ------ */
+
+.kpi-card {
+    border-radius: 14px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.kpi-header {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #cccccc;
+}
+
+.kpi-value {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+/* ------ Section titres ------ */
+
+.section-title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* ------ Carte des contrôles ------ */
+
+.controls-card {
+    border-radius: 14px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.controls-header {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.control-label {
+    color: #dddddd;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Dropdown & RadioItems ajustés */
+.Select-control,
+.Select-menu-outer {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/* ------ Détail du point cliqué ------ */
+
+.detail-card {
+    border-radius: 14px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.detail-text {
+    font-size: 0.95rem;
+}
+
+/* ------ Graphique Plotly ------ */
+
+.js-plotly-plot .plotly .main-svg {
+    border-radius: 10px;
+}
