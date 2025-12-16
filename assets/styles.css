@@ -1,0 +1,815 @@
+/* ============================================================
+   1. GLOBAL & STRUCTURE
+   ============================================================ */
+
+body {
+  background-color: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", sans-serif;
+}
+
+.main-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Utilitaires liens */
+.text-inherit {
+  color: inherit;
+}
+
+/* ============================================================
+   2. NAVBAR & FOOTER (App Shell)
+   ============================================================ */
+
+/* --- Navbar --- */
+.navbar-main {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+/* Logo */
+.brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.navbar-brand-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 0.55rem;
+}
+
+.navbar-brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Menu Central */
+.navbar-center {
+  margin-left: 3rem;
+  gap: 0.75rem;
+}
+
+.navbar-link {
+  font-size: 14px;
+  color: #6b7280 !important;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem !important;
+}
+
+.navbar-link:hover {
+  background-color: #f3f4f6;
+  color: #111827 !important;
+}
+
+.navbar-link.active {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+}
+
+/* Bouton Auth (Navbar) */
+.navbar-auth-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  padding: 0;
+}
+
+.navbar-auth-button:hover .navbar-profile-icon {
+  border-color: #111827;
+}
+
+.navbar-profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.navbar-profile-icon::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid #111827;
+  border-bottom: none;
+  position: absolute;
+  top: 6px;
+}
+
+.navbar-profile-icon::after {
+  content: "";
+  width: 16px;
+  height: 8px;
+  border-radius: 999px 999px 0 0;
+  border: 2px solid #111827;
+  border-top: none;
+  position: absolute;
+  bottom: 6px;
+}
+
+.navbar-auth-text {
+  font-size: 14px;
+}
+
+/* --- Footer --- */
+.footer-main {
+  margin-top: 4rem;
+  padding: 1.75rem 0 1.25rem 0;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.footer-title {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.footer-column {
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   3. COMPOSANTS PARTAGÉS (UI KIT)
+   ============================================================ */
+
+/* Tabs (Onglets) */
+.dash-tabs {
+  margin-top: 1.5rem;
+}
+
+.dash-tabs .tab {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0.5rem 1.2rem !important;
+  font-size: 14px;
+  color: #6b7280 !important;
+}
+
+.dash-tabs .tab--selected {
+  background-color: #ffffff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  color: #111827 !important;
+}
+
+/* Sections (Découverte / Favoris) */
+.section-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 1.2rem 1.4rem 1.4rem 1.4rem;
+}
+
+.section-card-secondary {
+  background-color: #fafafa;
+}
+
+.section-spacer {
+    margin-top: 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0.9rem;
+}
+
+/* Dropdowns personnalisés (Recherche, Filtres) */
+.favorites-dropdown .Select__control,
+.favorites-dropdown .dash-dropdown {
+  border-radius: 999px !important;
+}
+
+.favorites-search-input {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  padding: 0.55rem 0.9rem;
+  font-size: 13px;
+  margin-bottom: 0.75rem;
+  outline: none;
+}
+
+.favorites-search-input:focus {
+  border-color: #111827;
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+}
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0.25rem;
+}
+.modal-footer {
+  border-top: none;
+}
+
+/* Erreurs Formulaire */
+.field-error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   4. CARTES CRÉATEURS & VIDÉOS (via functions.py)
+   ============================================================ */
+
+/* --- Carte Créateur Large (Recherche/Profil) --- */
+.search-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 1.1rem 1.4rem;
+}
+
+.creator-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.favorite-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.favorite-username {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.favorite-meta-row {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.creator-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.creator-tag-pill {
+  font-size: 11px;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-color: #f3f4f6;
+}
+
+/* Bloc Plateforme dans la carte */
+.favorite-platform-pill {
+  display: inline-block;
+  background-color: #e5edff;
+  color: #1d4ed8;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-top: 0.35rem;
+}
+
+.creator-status-pill {
+  font-size: 12px;
+  color: #15803d;
+  background-color: #dcfce7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+/* Avatar par défaut (Lettre) */
+.favorite-avatar-initial {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: #4b5563;
+}
+
+/* --- Carte Créateur Compacte --- */
+.compact-avatar-img {
+    width: 60px;
+    height: 60px;
+}
+
+.compact-avatar-initial {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+}
+
+/* --- Carte Vidéo (Découverte) --- */
+.video-card-thumb {
+    object-fit: cover;
+    height: 140px;
+    width: 100%;
+}
+
+.video-card-fallback {
+    height: 140px;
+    font-size: 2rem;
+}
+
+/* --- Carte Top Vidéo (Ligne Profil) --- */
+.top-video-card {
+  background: white;
+  padding: 18px 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 16px;
+}
+
+.top-video-rank {
+  font-size: 22px;
+  font-weight: 700;
+  color: #6b7280;
+  width: 40px;
+  text-align: center;
+}
+
+.top-video-thumb {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.top-video-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.top-video-stats span {
+  margin-right: 12px;
+  color: #6b7280;
+}
+
+/* --- Carte Topic (Tags) --- */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.topic-card {
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem 1rem;
+  background-color: #ffffff;
+}
+
+.topic-title-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.topic-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  margin-right: 0.4rem;
+}
+
+.topic-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.topic-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 0.45rem;
+}
+
+.topic-growth-pill {
+  display: inline-flex;
+  font-size: 12px;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+/* ============================================================
+   5. PAGE: ACCUEIL (home.py)
+   ============================================================ */
+
+/* Filtres actifs */
+.filters-active-card {
+    background-color: #f3f7ff;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Option Plateforme */
+.platform-option {
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.platform-option.selected {
+    background-color: #dbeafe;
+    border-radius: 8px;
+}
+
+.platform-color-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Badges filtres */
+.platform-filter-badge {
+    background-color: #e5e7eb;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.theme-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: #e5e7eb;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 13px;
+}
+
+.theme-badge:hover {
+    background-color: #d1d5db;
+}
+
+.theme-badge.selected {
+    background-color: #2563eb !important;
+    color: white !important;
+}
+
+.country-badge {
+    /* Hérite de base, mais on peut personnaliser ici */
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: #e5e7eb;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 13px;
+}
+.country-badge:hover { background-color: #d1d5db; }
+.country-badge.selected { background-color: #2563eb !important; color: white !important; }
+
+.filter-close {
+    font-weight: bold;
+    color: #084298;
+    cursor: pointer;
+}
+
+.filter-close:hover {
+    color: #0d6efd;
+}
+
+/* Carte Monde */
+.map-container-div {
+    height: 520px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.map-graph {
+    height: 100%;
+    width: 100%;
+}
+
+/* ============================================================
+   6. PAGE: DÉCOUVERTE (discover.py)
+   ============================================================ */
+
+.discovery-header-container {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.discovery-header-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.discovery-header-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ============================================================
+   7. PAGE: RECHERCHE (search.py)
+   ============================================================ */
+
+.search-header-container {
+    margin-top: 32px;
+}
+
+.search-filters-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 1.1rem 1.4rem 1.3rem 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.search-filter-row-spacer {
+    margin-top: 0.5rem;
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.search-sort-dropdown {
+    width: 200px;
+}
+
+.search-pagination-container {
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.search-results-grid {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* ============================================================
+   8. PAGE: PROFIL (profile.py)
+   ============================================================ */
+
+.profile-header-wrapper {
+    padding-bottom: 30px;
+}
+
+/* Bouton favori dans le header profil */
+.profile-fav-action-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 5;
+}
+
+/* Dropdowns Profil */
+.profile-platform-dropdown {
+    max-width: 300px;
+}
+
+.profile-sort-dropdown {
+    width: 260px;
+}
+
+.profile-tabs {
+    margin-top: 20px;
+}
+
+.profile-tabs .tab {
+    padding: 12px 30px !important;
+    border-radius: 12px 12px 0 0;
+    background: #f3f4f6;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.profile-tabs .tab--selected {
+    background: white !important;
+    border-bottom: 2px solid #111827 !important;
+    font-weight: 600 !important;
+}
+
+.profile-content-area {
+    margin-top: 20px;
+}
+
+/* Analytics */
+.analytics-panel-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.analytics-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111827;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 8px;
+}
+
+.analytics-graph-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.analytics-graph-container {
+    height: 500px;
+    width: 100%;
+}
+
+/* ============================================================
+   9. PAGE: FAVORIS (favorites.py)
+   ============================================================ */
+
+.favorites-header-container {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.favorites-login-alert {
+    margin: 50px auto;
+    max-width: 600px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fav-item-wrapper {
+    position: relative;
+}
+
+/* Bouton flottant (cœur brisé) */
+.fav-floating-remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.fav-floating-remove-btn:hover {
+    background-color: #fef2f2;
+    border-color: #fca5a5;
+}
+
+.pagination-spacer {
+    height: 38px;
+    margin-top: 1rem;
+}
+
+.favorites-empty-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: #6b7280;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorites-list-container {
+    min-height: 200px;
+}
+
+/* ============================================================
+   10. PAGE: CONTACT (contact.py)
+   ============================================================ */
+
+.contact-link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.contact-link-button:hover {
+  text-decoration: underline;
+  color: #111827;
+}
+
+.contact-page-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-wrapper {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-card {
+    margin-top: 1rem;
+}
+
+.contact-textarea {
+    min-height: 120px;
+}
+
+.contact-modal-text {
+    font-size: 15px;
+}
+
+/* ============================================================
+   11. AUTHENTIFICATION (auth.py)
+   ============================================================ */
+
+.auth-switch-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  color: #4b5563;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.auth-status {
+  max-width: 1120px;
+  margin: 0.25rem auto 0 auto;
+  font-size: 12px;
+}
