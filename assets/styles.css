@@ -497,15 +497,24 @@ body {
     cursor: pointer;
     transition: 0.2s;
     font-size: 13px;
+    border: none;
+    box-shadow: none;
 }
 
 .theme-badge:hover {
     background-color: #d1d5db;
+    box-shadow: none;
+}
+
+.theme-badge:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .theme-badge.selected {
     background-color: #2563eb !important;
     color: white !important;
+    border: none;
 }
 
 .country-badge {
@@ -516,9 +525,22 @@ body {
     cursor: pointer;
     transition: 0.2s;
     font-size: 13px;
+    border: none;
+    box-shadow: none;
 }
-.country-badge:hover { background-color: #d1d5db; }
-.country-badge.selected { background-color: #2563eb !important; color: white !important; }
+.country-badge:hover { 
+    background-color: #d1d5db; 
+    box-shadow: none;
+}
+.country-badge:focus {
+    outline: none;
+    box-shadow: none;
+}
+.country-badge.selected { 
+    background-color: #2563eb !important; 
+    color: white !important; 
+    border: none;
+}
 
 .filter-close {
     font-weight: bold;

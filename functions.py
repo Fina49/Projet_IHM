@@ -433,9 +433,10 @@ class AnalyticsEngine:
 
     def _aggregate_platforms(self, history_dict, platforms):
         """Fusionne les historiques (somme) de plusieurs plateformes."""
+        month_names = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]
         agg = []
         for i in range(12): # Simulation sur 12 mois
-            row = {"month": f"M{i+1}"}
+            row = {"month": month_names[i]}
             for m in ["views", "likes", "shares", "comments", "followers", "videos"]:
                 row[m] = 0
             
@@ -510,7 +511,8 @@ class AnalyticsEngine:
                     ))
                 
                 if "forecast" in advanced:
-                    next_months = [f"M{12 + k}" for k in range(1, 4)]
+                    month_names = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]
+                    next_months = [f"{month_names[k % 12]} (Prév)" for k in range(3)]
                     next_Y = slope * np.arange(len(y_vals), len(y_vals)+3) + intercept
                     fig.add_trace(go.Scatter(
                         x=next_months, y=next_Y, 
@@ -681,7 +683,8 @@ class DataManager:
             return []
 
         # Initialisation structure accumulation
-        monthly_totals = {f"M{i}": {} for i in range(1, 13)}
+        month_names = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]
+        monthly_totals = {month_names[i]: {} for i in range(12)}
         metrics_to_sum = metrics_list if metrics_list else ["views", "likes", "shares", "comments", "followers", "videos"]
         
         for m_key in monthly_totals:
@@ -690,22 +693,22 @@ class DataManager:
 
         # Accumulation
         for c in relevant_creators:
-            for i in range(1, 13):
-                m_key = f"M{i}"
+            for i in range(12):
+                m_key = month_names[i]
                 for met in metrics_to_sum:
                     val = 0
                     for p in target_platforms:
                         hist = c.get("history", {}).get(p, [])
-                        if i <= len(hist):
-                            record = hist[i-1]
+                        if i < len(hist):
+                            record = hist[i]
                             val += record.get(met, 0)
                     
                     monthly_totals[m_key][met].append(val)
 
         # Moyennage
         avg_history = []
-        for i in range(1, 13):
-            m_key = f"M{i}"
+        for i in range(12):
+            m_key = month_names[i]
             row = {"month": m_key}
             for met in metrics_to_sum:
                 vals = monthly_totals[m_key][met]

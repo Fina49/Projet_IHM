@@ -1,5 +1,8 @@
 # constants.py
 
+# Noms de mois pour les graphiques
+MONTH_NAMES = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]
+
 # ============================================================
 # 1. STATS PAYS (HOME)
 # ============================================================
@@ -69,8 +72,8 @@ ALL_CREATORS = [
             "YouTube": {"active": "oui", "certified": "non", "followers": 162000, "views": 9800000, "videos": 110, "likes": 620000, "shares": 38000, "comments": 20000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(162000 * (i/12)**0.8), "videos": int(110 * (i/12)), "views": int(9800000 * (i/12)**1.5), "likes": int(620000 * (i/12)**1.5), "shares": int(38000 * (i/12)), "comments": int(20000 * (i/12))} for i in range(1, 13)],
-            "tiktok": [{"month": f"M{i}", "followers": int(350000 * (i/12)**1.2), "videos": int(240 * (i/12)), "views": int(18000000 * (i/12)**2), "likes": int(1000000 * (i/12)**2), "shares": int(80000 * (i/12)), "comments": int(40000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(162000 * (i/12)**0.8), "videos": int(110 * (i/12)), "views": int(9800000 * (i/12)**1.5), "likes": int(620000 * (i/12)**1.5), "shares": int(38000 * (i/12)), "comments": int(20000 * (i/12))} for i in range(1, 13)],
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(350000 * (i/12)**1.2), "videos": int(240 * (i/12)), "views": int(18000000 * (i/12)**2), "likes": int(1000000 * (i/12)**2), "shares": int(80000 * (i/12)), "comments": int(40000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -82,7 +85,7 @@ ALL_CREATORS = [
             "YouTube": {"active": "oui", "certified": "oui", "followers": 920000, "views": 58400000, "videos": 190, "likes": 3500000, "shares": 210000, "comments": 120000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(920000 * (i/12)), "videos": int(190 * (i/12)), "views": int(58400000 * (i/12)**2), "likes": int(3500000 * (i/12)**2), "shares": int(210000 * (i/12)), "comments": int(120000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(920000 * (i/12)), "videos": int(190 * (i/12)), "views": int(58400000 * (i/12)**2), "likes": int(3500000 * (i/12)**2), "shares": int(210000 * (i/12)), "comments": int(120000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -94,7 +97,7 @@ ALL_CREATORS = [
             "YouTube": {"active": "oui", "certified": "non", "followers": 890000, "views": 45200000, "videos": 156, "likes": 2100000, "shares": 150000, "comments": 80000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(890000 * (i/12)**0.9), "videos": int(156 * (i/12)), "views": int(45200000 * (i/12)**1.2), "likes": int(2100000 * (i/12)**1.2), "shares": int(150000 * (i/12)), "comments": int(80000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(890000 * (i/12)**0.9), "videos": int(156 * (i/12)), "views": int(45200000 * (i/12)**1.2), "likes": int(2100000 * (i/12)**1.2), "shares": int(150000 * (i/12)), "comments": int(80000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -106,7 +109,7 @@ ALL_CREATORS = [
             "TikTok": {"active": "oui", "certified": "non", "followers": 123000, "views": 8700000, "videos": 98, "likes": 500000, "shares": 12000, "comments": 5000}
         },
         "history": {
-            "tiktok": [{"month": f"M{i}", "followers": int(123000 * (i/12)), "videos": int(98 * (i/12)), "views": int(8700000 * (i/12)**0.8), "likes": int(500000 * (i/12)), "shares": int(12000 * (i/12)), "comments": int(5000 * (i/12))} for i in range(1, 13)]
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(123000 * (i/12)), "videos": int(98 * (i/12)), "views": int(8700000 * (i/12)**0.8), "likes": int(500000 * (i/12)), "shares": int(12000 * (i/12)), "comments": int(5000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -118,7 +121,7 @@ ALL_CREATORS = [
             "YouTube": {"active": "oui", "certified": "oui", "followers": 2500000, "views": 150000000, "videos": 600, "likes": 12000000, "shares": 500000, "comments": 250000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(2500000 * (i/12)), "videos": int(600 * (i/12)), "views": int(150000000 * (i/12)**1.1), "likes": int(12000000 * (i/12)), "shares": int(500000 * (i/12)), "comments": int(250000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(2500000 * (i/12)), "videos": int(600 * (i/12)), "views": int(150000000 * (i/12)**1.1), "likes": int(12000000 * (i/12)), "shares": int(500000 * (i/12)), "comments": int(250000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -130,7 +133,7 @@ ALL_CREATORS = [
             "TikTok": {"active": "oui", "certified": "non", "followers": 45000, "views": 2100000, "videos": 45, "likes": 150000, "shares": 5000, "comments": 3000}
         },
         "history": {
-            "tiktok": [{"month": f"M{i}", "followers": int(45000 * (i/12)), "videos": int(45 * (i/12)), "views": int(2100000 * (i/12)**2.5), "likes": int(150000 * (i/12)**2), "shares": int(5000 * (i/12)), "comments": int(3000 * (i/12))} for i in range(1, 13)]
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(45000 * (i/12)), "videos": int(45 * (i/12)), "views": int(2100000 * (i/12)**2.5), "likes": int(150000 * (i/12)**2), "shares": int(5000 * (i/12)), "comments": int(3000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -143,8 +146,8 @@ ALL_CREATORS = [
             "TikTok": {"active": "oui", "certified": "non", "followers": 120000, "views": 6500000, "videos": 50, "likes": 380000, "shares": 15000, "comments": 5000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(200000 * (i/12)), "videos": int(30 * (i/12)), "views": int(12000000 * (i/12)), "likes": int(600000 * (i/12)), "shares": int(30000 * (i/12)), "comments": int(10000 * (i/12))} for i in range(1, 13)],
-            "tiktok": [{"month": f"M{i}", "followers": int(120000 * (i/12)), "videos": int(50 * (i/12)), "views": int(6500000 * (i/12)), "likes": int(380000 * (i/12)), "shares": int(15000 * (i/12)), "comments": int(5000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(200000 * (i/12)), "videos": int(30 * (i/12)), "views": int(12000000 * (i/12)), "likes": int(600000 * (i/12)), "shares": int(30000 * (i/12)), "comments": int(10000 * (i/12))} for i in range(1, 13)],
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(120000 * (i/12)), "videos": int(50 * (i/12)), "views": int(6500000 * (i/12)), "likes": int(380000 * (i/12)), "shares": int(15000 * (i/12)), "comments": int(5000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -156,7 +159,7 @@ ALL_CREATORS = [
             "TikTok": {"active": "oui", "certified": "oui", "followers": 670000, "views": 42000000, "videos": 210, "likes": 3100000, "shares": 400000, "comments": 85000}
         },
         "history": {
-            "tiktok": [{"month": f"M{i}", "followers": int(670000 * (i/12)), "videos": int(210 * (i/12)), "views": int(42000000 * (i/12)**1.1), "likes": int(3100000 * (i/12)), "shares": int(400000 * (i/12)), "comments": int(85000 * (i/12))} for i in range(1, 13)]
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(670000 * (i/12)), "videos": int(210 * (i/12)), "views": int(42000000 * (i/12)**1.1), "likes": int(3100000 * (i/12)), "shares": int(400000 * (i/12)), "comments": int(85000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -168,7 +171,7 @@ ALL_CREATORS = [
             "TikTok": {"active": "oui", "certified": "non", "followers": 85000, "views": 3200000, "videos": 120, "likes": 250000, "shares": 10000, "comments": 8000}
         },
         "history": {
-            "tiktok": [{"month": f"M{i}", "followers": int(85000 * (i/12)), "videos": int(120 * (i/12)), "views": int(3200000 * (i/12)), "likes": int(250000 * (i/12)), "shares": int(10000 * (i/12)), "comments": int(8000 * (i/12))} for i in range(1, 13)]
+            "tiktok": [{"month": MONTH_NAMES[i-1], "followers": int(85000 * (i/12)), "videos": int(120 * (i/12)), "views": int(3200000 * (i/12)), "likes": int(250000 * (i/12)), "shares": int(10000 * (i/12)), "comments": int(8000 * (i/12))} for i in range(1, 13)]
         }
     },
     {
@@ -180,7 +183,7 @@ ALL_CREATORS = [
             "YouTube": {"active": "oui", "certified": "non", "followers": 150000, "views": 5600000, "videos": 75, "likes": 420000, "shares": 35000, "comments": 12000}
         },
         "history": {
-            "youtube": [{"month": f"M{i}", "followers": int(150000 * (i/12)), "videos": int(75 * (i/12)), "views": int(5600000 * (i/12)), "likes": int(420000 * (i/12)), "shares": int(35000 * (i/12)), "comments": int(12000 * (i/12))} for i in range(1, 13)]
+            "youtube": [{"month": MONTH_NAMES[i-1], "followers": int(150000 * (i/12)), "videos": int(75 * (i/12)), "views": int(5600000 * (i/12)), "likes": int(420000 * (i/12)), "shares": int(35000 * (i/12)), "comments": int(12000 * (i/12))} for i in range(1, 13)]
         }
     }
 ]
