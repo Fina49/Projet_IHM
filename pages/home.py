@@ -94,11 +94,12 @@ def render_selectable_badge(text, type_id, id_key, is_selected):
     Crée un badge cliquable (thème ou pays) avec gestion de l'état sélectionné.
     """
     css_class = "theme-badge selected" if is_selected else "theme-badge"
-    return html.Span(
+    return dbc.Button(
         text,
         id={"type": type_id, **id_key},
         className=css_class,
-        n_clicks=0
+        n_clicks=0,
+        size="sm"
     )
 
 def render_stat_line(label, value):
@@ -342,19 +343,34 @@ def update_active_filters_display(platform, themes, countries):
         Input({"type": "country-badge", "iso": ALL}, "n_clicks"),
         Input("world-map", "clickData")
     ],
-    [State("platform-selection", "data"), State("selected-theme", "data"), State("selected-country", "data")]
+    [State("platform-selection", "data"), State("selected-theme", "data"), State("selected-country", "data")],
+    prevent_initial_call=True
 )
 def manage_all_filters(tk_click, yt_click, clear_click, rm_click, theme_click, country_click, map_click, 
                       platform, themes, countries):
     """Gestion centralisée de tous les clics modifiant les filtres."""
     ctx = callback_context
-    if not ctx.triggered:
-        return "all", [], []
     
-    trig_id = ctx.triggered_id
+    # Sécurité : initialiser les valeurs par défaut
+    platform = platform or "all"
     themes = themes or []
     countries = countries or []
-    platform = platform or "all"
+    
+    if not ctx.triggered:
+        return platform, themes, countries
+    
+    # Récupérer l'élément qui a déclenché le callback
+    trigger = ctx.triggered[0]
+    prop_id = trigger["prop_id"]
+    trig_id = ctx.triggered_id
+    
+    # Ignorer les clics invalides ou vides
+    if not prop_id or prop_id == "." or trig_id is None:
+        return platform, themes, countries
+    
+    # Pour les patterns matching avec ALL, vérifier que la valeur a changé
+    if "n_clicks" in prop_id and trigger["value"] == 0:
+        return platform, themes, countries
 
     # Reset global
     if trig_id == "clear-filters":
@@ -368,30 +384,48 @@ def manage_all_filters(tk_click, yt_click, clear_click, rm_click, theme_click, c
     
     # Clic sur la carte
     if trig_id == "world-map" and map_click:
-        iso = map_click["points"][0]["location"]
-        if iso in countries:
-            new_countries = [c for c in countries if c != iso]
-        else:
-            new_countries = countries + [iso]
-        return platform, themes, new_countries
+        try:
+            iso = map_click["points"][0]["location"]
+            if iso in countries:
+                new_countries = [c for c in countries if c != iso]
+            else:
+                new_countries = countries + [iso]
+            return platform, themes, new_countries
+        except (KeyError, IndexError, TypeError):
+            return platform, themes, countries
 
     # Pattern matching pour suppression ou toggle de badges
     if isinstance(trig_id, dict):
         kind = trig_id.get("type")
+        
+        # Vérifier que le dictionnaire est valide
+        if not kind:
+            return platform, themes, countries
+            
         # Suppression via la croix
         if kind == "remove-filter":
             k_filter = trig_id.get("kind")
             val = trig_id.get("value")
-            if k_filter == "platform": platform = "all"
-            elif k_filter == "theme": themes = [t for t in themes if t != val]
-            elif k_filter == "country": countries = [c for c in countries if c != val]
+            if not k_filter or val is None:
+                return platform, themes, countries
+            if k_filter == "platform": 
+                platform = "all"
+            elif k_filter == "theme": 
+                themes = [t for t in themes if t != val]
+            elif k_filter == "country": 
+                countries = [c for c in countries if c != val]
         
         # Toggle Badges
         elif kind == "theme-badge":
             val = trig_id.get("name")
+            if val is None or val == "":
+                return platform, themes, countries
             themes = [t for t in themes if t != val] if val in themes else themes + [val]
+            
         elif kind == "country-badge":
             val = trig_id.get("iso")
+            if val is None or val == "":
+                return platform, themes, countries
             countries = [c for c in countries if c != val] if val in countries else countries + [val]
             
     return platform, themes, countries
