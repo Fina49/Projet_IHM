@@ -1,5 +1,5 @@
 """
-Point d'entrée principal de l'application Dash.
+Module principal de l'application Dash "Find Your Creator".
 
 Ce module gère :
 1. L'initialisation de l'application.
