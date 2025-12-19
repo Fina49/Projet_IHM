@@ -193,18 +193,18 @@ TRENDING_CREATORS = [c for c in ALL_CREATORS if c["is_trending"]]
 NEW_CREATORS = [c for c in ALL_CREATORS if c["is_new"]]
 TOP_VIDEOS = {
     "TikTok": [
-        {"title": "Routine Matin", "likes": 145000, "views": 2800000, "shares": 12000, "comments": 3400, "platform": "TikTok", "thumbnail": "/assets/thumb1.jpg", "duration": "00:45", "creator": "@lucas_fitpro"},
-        {"title": "Astuce Cuisine", "likes": 125000, "views": 2100000, "shares": 8000, "comments": 1200, "platform": "TikTok", "thumbnail": "/assets/thumb2.jpg", "duration": "01:20", "creator": "@cuisine_passion"},
-        {"title": "Dance Challenge", "likes": 98000, "views": 1500000, "shares": 5000, "comments": 900, "platform": "TikTok", "thumbnail": "/assets/thumb_dance.jpg", "duration": "00:30", "creator": "@lucas_fitpro"},
-        {"title": "Yoga Flow", "likes": 45000, "views": 500000, "shares": 2000, "comments": 300, "platform": "TikTok", "thumbnail": "/assets/thumb_yoga.jpg", "duration": "01:00", "creator": "@sophie_yoga"},
-        {"title": "Science Fact #42", "likes": 320000, "views": 4500000, "shares": 45000, "comments": 2200, "platform": "TikTok", "thumbnail": "/assets/thumb_sci.jpg", "duration": "00:59", "creator": "@sci_explain"},
+        {"title": "Routine Matin", "likes": 145000, "views": 2800000, "shares": 12000, "comments": 3400, "platform": "TikTok", "thumbnail": "/assets/thumbnails/thumb1.jpg", "duration": "00:45", "creator": "@lucas_fitpro"},
+        {"title": "Astuce Cuisine", "likes": 125000, "views": 2100000, "shares": 8000, "comments": 1200, "platform": "TikTok", "thumbnail": "/assets/thumbnails/thumb2.jpg", "duration": "01:20", "creator": "@cuisine_passion"},
+        {"title": "Dance Challenge", "likes": 98000, "views": 1500000, "shares": 5000, "comments": 900, "platform": "TikTok", "thumbnail": "/assets/thumbnails/thumb_dance.jpg", "duration": "00:30", "creator": "@lucas_fitpro"},
+        {"title": "Yoga Flow", "likes": 45000, "views": 500000, "shares": 2000, "comments": 300, "platform": "TikTok", "thumbnail": "/assets/thumbnails/thumb_yoga.jpg", "duration": "01:00", "creator": "@sophie_yoga"},
+        {"title": "Science Fact #42", "likes": 320000, "views": 4500000, "shares": 45000, "comments": 2200, "platform": "TikTok", "thumbnail": "/assets/thumbnails/thumb_sci.jpg", "duration": "00:59", "creator": "@sci_explain"},
     ],
     "YouTube": [
-        {"title": "Setup Tour 2025", "likes": 325000, "views": 5200000, "shares": 45000, "comments": 12000, "platform": "YouTube", "thumbnail": "/assets/thumb3.jpg", "duration": "12:30", "creator": "@techguru92"},
-        {"title": "HIIT 20 Minutes", "likes": 210000, "views": 3800000, "shares": 15000, "comments": 5000, "platform": "YouTube", "thumbnail": "/assets/thumb_hiit.jpg", "duration": "20:00", "creator": "@lucas_fitpro"},
-        {"title": "Vlog Japon", "likes": 180000, "views": 2900000, "shares": 12000, "comments": 3000, "platform": "YouTube", "thumbnail": "/assets/thumb_japon.jpg", "duration": "15:45", "creator": "@tokyo_vlog"},
-        {"title": "Battle Royale Highlights", "likes": 500000, "views": 8000000, "shares": 25000, "comments": 15000, "platform": "YouTube", "thumbnail": "/assets/thumb_game.jpg", "duration": "10:20", "creator": "@gaming_king_br"},
-        {"title": "Zero Waste Tips", "likes": 80000, "views": 1200000, "shares": 5000, "comments": 1200, "platform": "YouTube", "thumbnail": "/assets/thumb_eco.jpg", "duration": "08:15", "creator": "@ecolife_de"},
+        {"title": "Setup Tour 2025", "likes": 325000, "views": 5200000, "shares": 45000, "comments": 12000, "platform": "YouTube", "thumbnail": "/assets/thumbnails/thumb3.jpg", "duration": "12:30", "creator": "@techguru92"},
+        {"title": "HIIT 20 Minutes", "likes": 210000, "views": 3800000, "shares": 15000, "comments": 5000, "platform": "YouTube", "thumbnail": "/assets/thumbnails/thumb_hiit.jpg", "duration": "20:00", "creator": "@lucas_fitpro"},
+        {"title": "Vlog Japon", "likes": 180000, "views": 2900000, "shares": 12000, "comments": 3000, "platform": "YouTube", "thumbnail": "/assets/thumbnails/thumb_japon.jpg", "duration": "15:45", "creator": "@tokyo_vlog"},
+        {"title": "Battle Royale Highlights", "likes": 500000, "views": 8000000, "shares": 25000, "comments": 15000, "platform": "YouTube", "thumbnail": "/assets/thumbnails/thumb_game.jpg", "duration": "10:20", "creator": "@gaming_king_br"},
+        {"title": "Zero Waste Tips", "likes": 80000, "views": 1200000, "shares": 5000, "comments": 1200, "platform": "YouTube", "thumbnail": "/assets/thumbnails/thumb_eco.jpg", "duration": "08:15", "creator": "@ecolife_de"},
     ]
 }
 
