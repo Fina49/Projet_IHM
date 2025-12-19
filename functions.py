@@ -413,8 +413,9 @@ class AnalyticsEngine:
 
         fig.update_layout(
             template="plotly_white", 
-            margin=dict(l=20, r=20, t=30, b=20), 
-            legend=dict(orientation="h", y=-0.2), 
+            margin=dict(l=20, r=20, t=30, b=45), 
+            showlegend=True,
+            legend=dict(orientation="h", y=-0.1), 
             hovermode="x unified"
         )
         return fig
