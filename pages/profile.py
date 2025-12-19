@@ -84,7 +84,7 @@ def layout(id=None, **kwargs):
             dcc.Tabs(
                 id="profile-tabs", 
                 value="general", 
-                className="profile-tabs", 
+                className="dash-tabs profile-tabs", 
                 children=[
                     dcc.Tab(label="Général", value="general"), 
                     dcc.Tab(label="Top Vidéos", value="top"), 
