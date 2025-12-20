@@ -133,11 +133,28 @@ def layout(id=None, **kwargs):
                             ), 
                             html.Div(id="profile-top-videos-list", className="top-videos-list mb-3"), 
                             html.Div(
-                                className="d-flex justify-content-center gap-2", 
+                                className="search-pagination-container", 
                                 children=[
-                                    dbc.Button("Précédent", id="vid-prev", outline=True, color="primary", size="sm"), 
-                                    html.Span(id="vid-page-label", className="align-self-center small text-muted"), 
-                                    dbc.Button("Suivant", id="vid-next", outline=True, color="primary", size="sm")
+                                    dbc.Button(
+                                        "<",
+                                        id="vid-prev",
+                                        outline=True,
+                                        color="secondary",
+                                        size="sm",
+                                        n_clicks=0,
+                                    ),
+                                    html.Span(
+                                        id="vid-page-label",
+                                        className="align-self-center",
+                                    ),
+                                    dbc.Button(
+                                        ">",
+                                        id="vid-next",
+                                        outline=True,
+                                        color="secondary",
+                                        size="sm",
+                                        n_clicks=0,
+                                    )
                                 ]
                             )
                         ]
