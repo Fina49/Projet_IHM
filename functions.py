@@ -304,7 +304,13 @@ def render_video_card(video):
                         color="danger" if video.get("platform")=="YouTube" else "dark", 
                         className="me-2"
                     ),
-                    html.Small(f"{short_number(video.get('views'))} vues", className="text-muted")
+                    html.Small(
+                        [
+                            html.Span(["👁 ", f"{short_number(video.get('views'))}"], className="me-2"),
+                            html.Span(["👍 ", f"{short_number(video.get('likes'))}"], className="me-2"),
+                        ],
+                        className="text-muted"
+                    )
                 ], className="d-flex align-items-center mb-2"),
                 html.Div([
                     html.Span(
