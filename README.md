@@ -154,6 +154,10 @@ Champs importants :
 
 Dash charge automatiquement le dossier `assets/`.
 
+## Maquette Figma
+
+Lien : https://www.figma.com/make/CODUyUjmtZEz0L09CIlulb/Site-Internet-pour-Cr%C3%A9ateurs?fullscreen=1&t=HNhtzcRTfiHa7mq9-1
+
 ## Dépannage
 
 - **La page est blanche / callbacks non trouvés**
@@ -180,4 +184,4 @@ Dash charge automatiquement le dossier `assets/`.
 
 
 ## MESSAGE POUR MR PELLIER : ## 
-Nous avons mis à jour notre sujet de tp car nous avions eu un problème avec le jour de la présentation, il se trouve dans le dossier TP
+Nous avons mis à jour notre sujet de tp car nous avions eu un problème avec le jour de la présentation, il se trouve dans le dossier 2_TP
