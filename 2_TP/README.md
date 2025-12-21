@@ -1,5 +1,6 @@
 # TP Dash — Dashboard de ventes 
 Ce dépôt contient un TP complet destiné à découvrir la bibliothèque Dash (Plotly) dans le cadre du cours d’IHM. L’objectif est de construire progressivement un dashboard interactif, en 7 étapes, jusqu’à un rendu final stylé et professionnel. 
+La correction du TP se trouve dans la branche TP.
 
 
 # I - Installation 
