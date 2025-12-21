@@ -177,3 +177,7 @@ Dash charge automatiquement le dossier `assets/`.
 - BEYELER Elie
 - DESCHAMPS Kylian
 - ERAMIL Kadir
+
+
+## MESSAGE POUR MR PELLIER : ## 
+Nous avons mis à jour notre sujet de tp car nous avions eu un problème avec le jour de la présentation, il se trouve dans le dossier TP
